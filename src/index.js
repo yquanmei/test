@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import dva from 'dva';
+import routes from '@/routes/router_config';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
+const createBrowserHistory = require('history').createBrowserHistory;
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// initialize
+const app = dva({
+  history: createBrowserHistory(),
+});
+
+// plugins
+
+// model
+// app.model(require('./models/app').default)
+
+// router
+app.router(routes);
+
+// start
+app.start('#root');
