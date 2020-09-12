@@ -1,5 +1,5 @@
 import dva from 'dva';
-import routes from '@/routes/router_config';
+import routes from '@/routes/router';
 
 const createBrowserHistory = require('history').createBrowserHistory;
 
