@@ -1,14 +1,14 @@
 const routes = [
   {
-    title: '欢迎页',
+    title: '登录',
     path: '/',
     component: () => import('../components/login'),
   },
-  // {
-  //   title: '欢迎页',
-  //   path: '/welcome',
-  //   component: () => import('../components/welcome')
-  // },
+  {
+    title: '注册',
+    path: '/register',
+    component: () => import('../components/register'),
+  },
   // {
   //   title: '关于我们-资质荣誉',
   //   path: '/about-us/honor',

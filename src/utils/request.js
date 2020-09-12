@@ -1,18 +1,5 @@
-/* eslint-disable no-throw-literal */
 import fetch from 'dva/fetch';
-import querystring from 'query-string';
-// import { notSuccessException, failException } from '@/utils/exceptions';
-
-
-const getParams = (url = '', method = 'GET', options = {}) => {
-  switch (method.toUpperCase()) {
-    case 'GET':
-    case 'DELETE':
-      return url + querystring.stringify(options);
-    default:
-      return url;
-  }
-};
+import { notSuccessException, failException } from '@/utils/exceptions';
 
 const JSON_CONTENT_TYPE = 'application/json;charset=utf-8';
 
@@ -41,6 +28,9 @@ function checkStatus (response) {
       return dataJson;
     } catch (e) {
       if (response.status >= 200 && response.status < 400) {
+        if (response.status === 200) {
+          notSuccessException(data);
+        }
         return data;
       }
       return throwError(response.status, dataJson.message || dataJson);
@@ -78,6 +68,8 @@ export default function request (url, options = {}, cb) {
 
   if (newBody) newOptions.body = newBody;
 
-  return fetch(getParams(url, method, body), newOptions)
-    .then(cb || checkStatus);
+  // return fetch(getParams(url, method, body), newOptions)
+  //   .then(cb || checkStatus);
+
+  return fetch(url, newOptions).then(cb || checkStatus).catch((error) => { failException(error); });
 }

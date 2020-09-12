@@ -18,7 +18,8 @@ const throwError = (status, message = '') => {
 };
 
 const failException =  (error) => {
-  const { status = '001', message = enums[status] } = error;
+  const { status = '001' } = error;
+  const message = enums[status] || '未知错误';
   const { durationLong } = toastTime;
   Toast.fail(`${status}：${message}`, durationLong);
   return throwError(status, message);
