@@ -10,6 +10,7 @@ const { durationShort } = toastTime;
 
 @createForm()
 class Register extends Component {
+
   // func: 提交
   submit = () => {
     const { validateFields } = this.props.form;
@@ -139,6 +140,4 @@ class Register extends Component {
   }
 }
 
-// const RegisterWrapper = createForm()(Register)
-// export default RegisterWrapper
 export default Register;

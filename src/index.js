@@ -1,5 +1,6 @@
 import dva from 'dva';
 import routes from '@/routes/router';
+import '@/assets/css/init.less';
 
 const createBrowserHistory = require('history').createBrowserHistory;
 

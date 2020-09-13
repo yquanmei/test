@@ -101,7 +101,4 @@ class Login extends Component {
   }
 }
 
-// const LoginWrapper = createForm()(Login);
-
-// export default LoginWrapper
 export default Login;
