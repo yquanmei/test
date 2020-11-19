@@ -1,0 +1,19 @@
+{
+  "version": 1.0,
+  "projects": {
+    "main": {
+      "name": "main",
+      "path": "dealer",
+      "publicPath": "",
+      "index": "public/index.html",
+      "main": "src/index.js"
+    },
+    "app1": {
+      "name": "app1",
+      "path": "consumer",
+      "publicPath": "",
+      "index": "public/index.html",
+      "main": "src/app1/index.js"
+    }
+  }
+}
